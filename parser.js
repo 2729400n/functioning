@@ -10,7 +10,9 @@ const x_then_y_or_z = (x, y, z) => x ? y() : z();
 const charcodeaty = (x, y) => x.charCodeAt(y);
 const lengthOf = (x) => x.length;
 
-let filer = fs.readFileSync("chal.js", { encoding: "utf8" })
+let filer = "and(add(mul(add(10, 1), mul(y, add(1, add(21, 1)))), add(x, mul(y, 2))), mul(15, add(16, 1)))";
+// fs.readFileSync("chal.js", { encoding: "utf8" })
+console.log(filer)
 
 
 
@@ -35,17 +37,38 @@ function add_func(a_,b_) {
     return (a+b).toString().trim()
 
 }
+function mul_func(a_,b_) {
+    let a = Number.parseInt(a_)
+    let b = Number.parseInt(b_)
 
-function name(str) {
-    if (!(str instanceof (String))) {
-        return
-    }
-    let ostr = str
+    return (a*b).toString().trim()
+
+}
+function pow_func(a_,b_) {
+    let a = Number.parseInt(a_)
+    let b = Number.parseInt(b_)
+
+    return (a**b).toString().trim()
+
+}
+function and_func(a_,b_) {
+    let a = Number.parseInt(a_)
+    let b = Number.parseInt(b_)
+
+    return (a&b).toString().trim()
+
+}
+
+function namer(str) {
+
+    let ostr = String(str)
     let val = "";
-    for (let index = 0; index < 100; index++) {
+    for (let i = 0; i < 1000; i++) {
+        // console.log(ostr)
         let matches = ostr.matchAll(regexes[i % regexes.length])
         for (const match of matches) {
             let func = match[1];
+            console.log(func)
             switch (func) {
                 case "a":
                     val = "0"
@@ -63,13 +86,15 @@ function name(str) {
                     val = and_func(match[2], match[3]);
                     break;
             }
+            ostr=ostr.replace(match[0], val)
         }
 
     }
+    return ostr
 }
 
 let regex_6 = /x_then_y_or_z\(\s*([A-z][A-z0-9])\s*,\s*([0-9])\)/g
 let regex_7 = /charcodeaty\(\s*([0-9])\s*,\s*([0-9])\)/g
 let regex_8 = /lengthOf\(\s*([0-9])\s*,\s*([0-9])\)/g
 
-console.log(filer.replaceAll(/a\(\)/gm, "0").replaceAll(/pow\(\s*0\s*,\s*0\)/g, "1").replaceAll(/add\(\s*1\s*,\s*1\)/g, "2"))
+console.log(namer(filer))
