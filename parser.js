@@ -10,17 +10,16 @@ const x_then_y_or_z = (x, y, z) => x ? y() : z();
 const charcodeaty = (x, y) => x.charCodeAt(y);
 const lengthOf = (x) => x.length;
 
-let filer = "and(add(mul(add(10, 1), mul(y, add(1, add(21, 1)))), add(x, mul(y, 2))), mul(15, add(16, 1)))";
-// fs.readFileSync("chal.js", { encoding: "utf8" })
+let filer = fs.readFileSync("chal.js", { encoding: "utf8" })
 console.log(filer)
 
 
 
 let regex_1 = /(a)\s*\(\)/g
-let regex_2 = /(pow)\s*\(\s*([0-9])\s*,\s*([0-9])\)/g
-let regex_3 = /(add)\s*\(\s*([0-9])\s*,\s*([0-9])\)/g
-let regex_4 = /(mul)\s*\(\s*([0-9])\s*,\s*([0-9])\)/g
-let regex_5 = /(and)\s*\(\s*([0-9])\s*,\s*([0-9])\)/g
+let regex_2 = /(pow)\s*\(\s*([0-9]+)\s*,\s*([0-9]+)\)/g
+let regex_3 = /(add)\s*\(\s*([0-9]+)\s*,\s*([0-9]+)\)/g
+let regex_4 = /(mul)\s*\(\s*([0-9]+)\s*,\s*([0-9]+)\)/g
+let regex_5 = /(and)\s*\(\s*([0-9]+)\s*,\s*([0-9]+)\)/g
 
 let regexes = [
     regex_1,
@@ -68,7 +67,6 @@ function namer(str) {
         let matches = ostr.matchAll(regexes[i % regexes.length])
         for (const match of matches) {
             let func = match[1];
-            console.log(func)
             switch (func) {
                 case "a":
                     val = "0"
