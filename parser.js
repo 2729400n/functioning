@@ -11,7 +11,7 @@ const charcodeaty = (x, y) => x.charCodeAt(y);
 const lengthOf = (x) => x.length;
 
 let filer = fs.readFileSync("chal.js", { encoding: "utf8" })
-console.log(filer)
+
 
 
 
@@ -94,5 +94,5 @@ function namer(str) {
 let regex_6 = /x_then_y_or_z\(\s*([A-z][A-z0-9])\s*,\s*([0-9])\)/g
 let regex_7 = /charcodeaty\(\s*([0-9])\s*,\s*([0-9])\)/g
 let regex_8 = /lengthOf\(\s*([0-9])\s*,\s*([0-9])\)/g
-
+console.log("\n")
 console.log(namer(filer))
