@@ -15,8 +15,8 @@ const lengthOf = (x) => x.length;
 
 const A = (x, y) => (y * 255 + x) & 0xff;
 const B = (x, y) => 0xffff & (x + y * 255 * 257)
-const C = (x, y) => x_then_y_or_z(A(x, y), () => x_then_y_or_z(x, () => C(A(x, 1), y), a), () => 1);
-const D = (x, y) => x_then_y_or_z(B(x, A(x, a())), () => D(B(B(x, pow(add(pow(a(), a()), pow(a(), a())), pow(add(pow(a(), a()), pow(a(), a())), add(pow(a(), a()), add(pow(a(), a()), pow(a(), a())))))), A(x, a())), B(y, pow(a(), a()))), () => y);
+const C = (x, y) => ( (y * 255 + x) & 0xff)? (x? () => C( ( ( 255 + x) & 0xff), y): 0 ): () => 1 ;
+const D = (x, y) => x_then_y_or_z(B(x, ( (0 * 255 + x) & 0xff)), () => D(B(((x + 256 * 65535) & 0xffff), ( (0 * 255 + x) & 0xff)), ((y + 1 * 65535) & 0xffff)), () => y);
 const E = (x) => B(a(), D(x, a()));
 const F = (x, y) => x_then_y_or_z(B(B(x, A(x, a())), B(y, A(y, a()))), () => C(E(x), E(y)), () => C(A(x, a()), A(y, a())));
 const G = (x, y, z) => x_then_y_or_z(F(x, y), () => G(B(x, y), y, B(z, B(a(), pow(a(), a())))), () => z);

@@ -1,0 +1,1 @@
+x_then_y_or_z(B(x, A(x, a())), () => D(B(B(x, pow(add(pow(a(), a()), pow(a(), a())), pow(add(pow(a(), a()), pow(a(), a())), add(pow(a(), a()), add(pow(a(), a()), pow(a(), a())))))), A(x, a())), B(y, pow(a(), a()))), () => y);
