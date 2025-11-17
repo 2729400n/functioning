@@ -17,14 +17,14 @@ let filer = "x_then_y_or_z(A(x, y), () => x_then_y_or_z(x, () => C(A(x, pow(a(),
 
 
 let regex_1 = /(a)\s*\(\s*\)/g
-let regex_2 = /(pow)\s*\(\s*([A-z0-9]+)\s*,\s*([A-z0-9]+)\s*\)/g
-let regex_3 = /(add)\s*\(\s*([A-z0-9]+)\s*,\s*([A-z0-9]+)\s*\)/g
-let regex_4 = /(mul)\s*\(\s*([A-z0-9]+)\s*,\s*([A-z0-9]+)\s*\)/g
-let regex_5 = /(and)\s*\(\s*([A-z0-9]+)\s*,\s*([A-z0-9]+)\s*\)/g
-let regex_A = /(A)\s*\(\s*([A-z0-9]+)\s*,\s*([A-z0-9]+)\s*\)/g
-let regex_B = /(B)\s*\(\s*([A-z0-9]+)\s*,\s*([A-z0-9]+)\s*\)/g
-let regex_7 = /charcodeaty\(\s*([A-z0-9])\s*,\s*([A-z0-9])\s*\)/g
-let regex_8 = /lengthOf\(\s*([A-z0-9])\s*\)/g
+let regex_2 = /(pow)\s*\(\s*(.+)\s*,\s*(.+)\s*\)/g
+let regex_3 = /(add)\s*\(\s*(.+)\s*,\s*(.+)\s*\)/g
+let regex_4 = /(mul)\s*\(\s*(.+)\s*,\s*(.+)\s*\)/g
+let regex_5 = /(and)\s*\(\s*(.+)\s*,\s*(.+)\s*\)/g
+let regex_A = /(A)\s*\(\s*(.+)\s*,\s*(.+)\s*\)/g
+let regex_B = /(B)\s*\(\s*(.+)\s*,\s*(.+)\s*\)/g
+let regex_7 = /charcodeaty\(\s*(.+)\s*,\s*(.+)\s*\)/g
+let regex_8 = /lengthOf\(\s*(.+)\s*\)/g
 
 let regexes = [
     regex_1,
@@ -128,7 +128,6 @@ function namer(str) {
                     val = A_func(match[2], match[3]);
                     break;
                 case "B":
-                    console.log("B valled",match)
                     val = B_func(match[2], match[3]);
                     break;
                 case "x_then_y_or_z":
@@ -148,5 +147,8 @@ function namer(str) {
 for(let itt of ["A","B","C","D","E"]){
     filer = `chal_${itt}.js`;
     console.log(`\n=== ${filer}====\n`)
-    console.log(namer(fs.readFileSync(filer, "utf8")));
+    let out =namer(fs.readFileSync(filer, "utf8"))
+    console.log(out);
+
+    fs.writeFileSync(`chal_${itt}_yolked.js`,out)
 }
