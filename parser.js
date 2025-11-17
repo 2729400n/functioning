@@ -130,13 +130,14 @@ function namer(str) {
                 case "B":
                     val = B_func(match[2], match[3]);
                     break;
-                case "x_then_y_or_z":
-                    val = x_then_y_or_z_func(match[2], match[3], match[4]);
-                    break;
+                // case "x_then_y_or_z":
+                //     val = x_then_y_or_z_func(match[2], match[3], match[4]);
+                //     break;
                 default:
                     val = match[0]
 
             }
+            if(filer==`chal_B.js`)
             ostr = ostr.replace(match[0], val)
         }
 

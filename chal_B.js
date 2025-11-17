@@ -1,1 +1,3 @@
 and(mul(A(a(), pow(a(), a())), add(pow(a(), a()), pow(add(pow(a(), a()), pow(a(), a())), pow(add(pow(a(), a()), pow(a(), a())), add(add(pow(a(), a()), pow(a(), a())), pow(a(), a())))))), add(x, mul(mul(A(a(), pow(a(), a())), y), add(pow(a(), a()), pow(add(pow(a(), a()), pow(a(), a())), pow(add(pow(a(), a()), pow(a(), a())), add(add(pow(a(), a()), pow(a(), a())), pow(a(), a()))))))));
+
+((A(0, (0, 0)), (pow(0, 0), pow(add(pow(0, 0), pow(0, 0)), pow(add(pow(0, 0), pow(0, 0)), add(add(pow(0, 0), pow(0, 0)), pow(0, 0)))))), add(x, mul(mul(A(0, pow(0, 0)), y), add(pow(0, 0), pow(add(pow(0, 0), pow(0, 0)), pow(add(pow(0, 0), pow(0, 0)), add(add(pow(0, 0) & pow(0 * 0)) + pow(0 ** 0))))))));
